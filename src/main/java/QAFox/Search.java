@@ -13,17 +13,17 @@ public class Search {
     private WebDriver driver;
 
     @BeforeMethod
-    public void setUp() {
+    public void setUp() throws InterruptedException {
         // Initialize ChromeDriver
         driver = new ChromeDriver();
         driver.manage().window().maximize();
+        // Open a website
+        driver.get("https://tutorialsninja.com/demo/");
+        Thread.sleep(5000);
     }
 
     @Test
     public void test_search_valid() throws Exception {
-        // Open a website
-        driver.get("https://tutorialsninja.com/demo/");
-        Thread.sleep(5000);
 
         // Find search field and search button
         WebElement searchField = driver.findElement(By.name("search"));
@@ -40,9 +40,21 @@ public class Search {
         Assert.assertEquals(numberOfMacBooksDisplayed, 3, "Expected 3 MacBooks to be displayed, but found " + numberOfMacBooksDisplayed);
     }
 
+    @Test
+    public void test_search_invalid() throws Exception {
+
+        // Find search field and search button
+        WebElement searchField = driver.findElement(By.name("search"));
+        WebElement searchButton = driver.findElement(By.cssSelector("#search > span > button"));
+
+        // Enter search term and click the search button
+        searchField.sendKeys("");
+        searchButton.click();
+    }
+
     @AfterMethod
     public void tearDown() {
         // Close the WebDriver after the test
-        driver.quit();
+        driver.close();
     }
 }
