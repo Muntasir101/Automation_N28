@@ -1,8 +1,9 @@
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="MySuite">
-    <test name="Search">
+
+    <test name="Register">
         <classes>
-            <class name="QAFox.Search"/>
+            <class name="QAFox.Register"></class>
         </classes>
     </test>
 
@@ -11,4 +12,12 @@
             <class name="QAFox.Login"/>
         </classes>
     </test>
+
+    <test name="Search">
+        <classes>
+            <class name="QAFox.Search"/>
+        </classes>
+    </test>
+
+
 </suite>
