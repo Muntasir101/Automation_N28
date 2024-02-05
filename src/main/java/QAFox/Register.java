@@ -27,7 +27,7 @@ public class Register {
         return username + "_" + uniqueIdentifier + "@" + domain;
     }
     @Test
-    public void register_valid_Test() throws InterruptedException {
+    public void Register() throws InterruptedException {
         // Initialize ChromeDriver
         WebDriver driver = new ChromeDriver();
         driver.manage().window().maximize();
